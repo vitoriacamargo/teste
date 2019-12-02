@@ -1,0 +1,57 @@
+<h5>Produto</h5>
+<div class="row" *ngIf="contact2" >
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="onSave()">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">shopping_cart</i>
+        <input id="name" type="text" class="validate"
+               [(ngModel)]="contact2.name" formControlName="name"
+               [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid"
+        >
+        <label for="name"
+               [class.active]="contact2.name"
+               data-error="Você precisa acrescentar mais de 3 caracteres">
+          Nome do produto
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+          <i class="material-icons prefix">local_offer</i>
+        <input id="email" type="text" class="validate"
+               [(ngModel)]="contact2.email" formControlName="email"
+               [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
+        <label for="email"
+               [class.active]="contact2.email"
+               data-error="Você precisa acrescentar mais de 3 caracteres">
+          Marca
+        </label>
+      </div>
+    </div>
+    <div formGroupName="phone">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">location_on</i>
+          <input id="phoneNumber" type="text" class="validate"
+                 [(ngModel)]="contact2.phone.phoneNumber" formControlName="phoneNumber"
+                 [class.invalid]="form.controls['phone'].controls['phoneNumber'].touched
+                  && !form.controls['phone'].controls['phoneNumber'].valid">
+          <label for="phoneNumber"
+                 [class.active]="contact2.phone.phoneNumber"
+                 data-error="Você precisa acrescentar mais de 7 caracteres">
+            Local
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn waves-effect waves-light" type="submit" [disabled]="!form.valid">
+          Enviar<i class="material-icons right"></i>
+        </button>
+        <a class="waves-effect waves-light btn red"
+        (click)="onCancel()">Cancelar</a>
+      </div>
+    </div>
+  </form>
+</div>

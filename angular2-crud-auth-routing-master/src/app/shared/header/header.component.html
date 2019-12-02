@@ -1,0 +1,21 @@
+<div class="navbar-fixed" *ngIf="showNavBar">
+<nav class="btn darken-3">
+  <div class="nav-wrapper">
+    <a class="brand-logo right" style="padding-left: 15px"
+      routerLink="">
+      MERCADO INTELIGENTE
+    </a>
+    <ul id="nav-mobile" class="left">
+      <li routerLinkActive="active">
+        <a (click)="red()" >  Voltar</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="!isAuth()">
+        <a routerLink="/signin">Entrar</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="isAuth()">
+        <a (click)="onLogout()">Sair</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
